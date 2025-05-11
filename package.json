@@ -1,0 +1,39 @@
+{
+  "name": "notez",
+  "version": "1.0.0",
+  "description": "A simple Electron-based note taking app.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "win": {
+       "target": [
+        { "target": "nsis", "arch": ["x64", "arm64"] },
+        { "target": "portable", "arch": ["x64", "arm64"] }
+      ],
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "icon": "icon.ico",
+      "forceCodeSigning": false
+    },
+    "mac": {
+      "icon": "icon.png",
+      "target": ["dmg"]
+    },
+    "linux": {
+      "icon": "icon.png",
+      "target": ["AppImage", "deb"]
+    },
+    "asar": true,
+    "asarUnpack": ["**/*.node"],
+    "artifactName": "${productName}-${version}.${ext}"
+  },
+  "author": "Aditya-Codes-247",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.2.0",
+    "electron-builder": "^26.0.12",
+    "sharp": "^0.34.1"
+  }
+}
